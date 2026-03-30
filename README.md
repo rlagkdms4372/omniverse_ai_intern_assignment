@@ -15,21 +15,11 @@ Omniverse AI Internship Assignment
    - uv pip install -r requirements.txt
 
 3. Repository Structure
-project-root/
-│
-├── data/
-│   ├── diabetic_data.csv              # Main dataset
-│   ├── IDS_mapping.csv                # Mapping file for diagnosis/admission/source codes
-│   └── unseen_data.csv                # Sample 5% of the full cleaned dataset using stratified sampling proportional to the target variable
-│
-├── notebooks/
-│   └── code.ipynb                     # Main notebook for EDA, preprocessing, training, and evaluatioㅜ
-│
-├── outputs/
-│   └── leaderboard.csv                # Leaderboard results on the test set
-│
-├── README.md                          # Project documentation and reproduction guide
-└── requirements.txt                   # Optional dependency list
+   - unseen_data.csv                # Sample 5% of the full cleaned dataset using stratified sampling proportional to the target variable
+   - code.ipynb                     # Main notebook for EDA, preprocessing, training, and evaluatioㅜ
+   - leaderboard.csv                # Leaderboard results on the test set
+   - README.md                      # Project documentation and reproduction guide
+   - requirements.txt               # Optional dependency list
 
 4. Running the Training Script
    - load the raw dataset
@@ -38,8 +28,7 @@ project-root/
    - train the AutoGluon model
    - evaluate the model on the hold-out test set
    - save the trained artifacts to ag_models/, save leaderboard results to outputs/leaderboard.csv.
-
-If using the notebook instead, open: jupyter notebook notebooks/code.ipynb
+   - If using the notebook instead, open: jupyter notebook notebooks/code.ipynb
 and run all cells in order.
 
 5. Running Inferencing
