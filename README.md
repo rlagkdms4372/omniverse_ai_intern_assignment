@@ -8,14 +8,51 @@ Omniverse AI Internship Assignment
      - Primary dataset containing clinical encounter records for diabetic patients.
    -  The modeling approach is based on AutoGluon TabularPredictor, which automatically trains and ensembles multiple tabular models to optimize predictive performance.
 
-
 2. Envirionment Setup
-   - 
-4. Repository Structure
-5. Running the Training Script
-6. Running Inferencing
-7. Model Performance
-8. Dependencies
+   - uv venv --python 3.12
+   - source .venv/bin/activate      # Linux / macOS
+   - .venv\Scripts\activate        # Windows
+   - uv pip install -r requirements.txt
+
+3. Repository Structure
+project-root/
+│
+├── data/
+│   ├── diabetic_data.csv              # Main dataset
+│   ├── IDS_mapping.csv                # Mapping file for diagnosis/admission/source codes
+│   └── unseen_data.csv                # Sample 5% of the full cleaned dataset using stratified sampling proportional to the target variable
+│
+├── notebooks/
+│   └── code.ipynb                     # Main notebook for EDA, preprocessing, training, and evaluatioㅜ
+│
+├── outputs/
+│   └── leaderboard.csv                # Leaderboard results on the test set
+│
+├── README.md                          # Project documentation and reproduction guide
+└── requirements.txt                   # Optional dependency list
+
+4. Running the Training Script
+   - load the raw dataset
+   - preprocess the data
+   - create stratified train/test splits based on readmitted
+   - train the AutoGluon model
+   - evaluate the model on the hold-out test set
+   - save the trained artifacts to ag_models/, save leaderboard results to outputs/leaderboard.csv.
+
+If using the notebook instead, open: jupyter notebook notebooks/code.ipynb
+and run all cells in order.
+
+5. Running Inferencing
+   
+import pandas as pd
+unseed_data = pd.read_csv("unseed_data.csv")
+
+leaderboard = predictor.leaderboard(unseed_data, silent=False)
+leaderboard.to_csv('leaderboard_unseen.csv', index=False)
+
+6. Model Performance
+
+7. Dependencies
    - Python version: 3.12
    - Pandas version: 2.3.3
    - Numpy version: 2.1.3
