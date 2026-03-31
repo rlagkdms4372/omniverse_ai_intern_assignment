@@ -21,6 +21,7 @@ Omniverse AI Internship Assignment
    - README.md                      # Project documentation and reproduction guide
    - requirements.txt               # Optional dependency list
    - ag_models/ directory committed google drive file
+   - You can download 'ag_models' through google drive link
    - [https://drive.google.com/drive/folders/16qtP90MiKszh4FMkFafQ_N4DPx7I-XlV?usp=drive_link]
 
 4. Running the Training Script
