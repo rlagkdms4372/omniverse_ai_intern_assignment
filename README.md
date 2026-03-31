@@ -33,11 +33,14 @@ and run all cells in order.
 
 5. Running Inferencing
    
-import pandas as pd
-unseed_data = pd.read_csv("unseed_data.csv")
+   from autogluon.tabular import TabularPredictor
+   import pandas as pd
 
-leaderboard = predictor.leaderboard(unseed_data, silent=False)
-leaderboard.to_csv('leaderboard_unseen.csv', index=False)
+   predictor = TabularPredictor.load("ag_models/")
+   unseen_data = pd.read_csv("unseen_data.csv")
+   predictions = predictor.predict(unseen_data)
+
+   predictions
 
 6. Model Performance
 
